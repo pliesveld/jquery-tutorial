@@ -1,0 +1,135 @@
+  <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title> MNML </title>
+    <meta name="description" content="minimal template to building responsive websites with html5 and postcss">
+    <meta name="viewport" content="width=720">
+
+    <!--<link rel="stylesheet" href="css/mnml.min.css">-->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+    <style>
+	body {
+		margin: 0px;
+	}
+  
+       * {
+		-webkit-margin-before:0em;
+		-webkit-margin-after:0em;
+ 	}
+
+      .letter { width: 80px; height: 80px; line-height: 80px;
+        text-align: center; font-size: 35px; vertical-align: middle;
+        position: relative; display: inline-block; margin: 0px;
+        padding: 0px; border: 0px; background-color: black; color: white; 
+      }
+
+      .board {
+        width: 800px;
+        position: static;
+	display: inline-table;
+	background-color: green;
+	overflow: hidden;
+	margin: 0px; 
+      }
+
+      .row {
+	margin: 0px; 
+      }
+    </style>
+  </head>
+
+  <script language="javascript">
+      function addLetter(letter) {
+	 $('#news-feed').each(function() {
+	var title = 'testtest';
+	var $link = $('<span></span>')
+		.addClass('letter')
+		.text(letter);
+	$(this).append($link);
+      });
+    }
+
+    function onload() {
+	$('.hide').fadeOut();
+
+/*
+	$('#news-feed').each(function() {
+	$(this).empty();
+	});
+
+*/
+
+
+	//addLetter('P');
+//	addLetter('A');
+	//addLetter('T');
+	}
+
+    var TOGGLE = false;
+
+    function toggle() {
+      var x = $('.letter');
+
+
+	if (TOGGLE) {
+      x.animate({left: "+=80px"}, 5);
+	} else {
+      x.animate({left: "-=80px"}, 5);
+	}
+
+	TOGGLE = !TOGGLE;
+
+      console.log(x.text());
+    }
+  </script>
+
+  <body>
+	<div class="board">
+		<div id="row"><span class="letter">X</span><span class="letter">X</span><span class="letter">X</span></div>
+		<div id="row"><span class="letter">X</span><span class="letter">X</span><span class="letter">X</span></div>
+		<div id="row"><span class="letter">X</span><span class="letter">X</span><span class="letter">X</span></div>
+	</div>
+
+
+	<div class="board">
+		<div id="row">
+      		<span class="letter">L</span>
+		</div>
+	</div>
+
+	<div class="board">
+<div id="row"><span class="letter">L</span><span class="letter">R</span></div>
+	</div>
+
+	<div class="board">
+		<div id="row">
+      		<span class="letter">L</span>
+		<div id="row">
+		</div>
+      		<span class="letter">R</span>
+		</div>
+	</div>
+
+
+
+
+    <div style="display:table;width:100%; height: 100%;">
+      <form onsubmit="toggle(); return false;">
+        <button type="submit">TOGGLE</button>
+      </form>
+    </div>
+  </body>
+
+  <script>
+    $(document).ready(function() {
+      onload();
+      //setTimeout(() => { toggle(); }, 300);
+      //setInterval(() => { toggle(); }, 500);
+    })
+  </script>
+</html>
+
